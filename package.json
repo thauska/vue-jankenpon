@@ -1,34 +1,42 @@
 {
-  "name": "vue-jankenpon",
+  "name": "rock-paper-scissors",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "test:unit": "vue-cli-service test:unit",
-    "lint": "vue-cli-service lint"
+    "test:unit": "vue-cli-service test:unit --passWithNoTests",
+    "test:unit:watch": "vue-cli-service test:unit --watch --passWithNoTests",
+    "test:unit:watchAll": "vue-cli-service test:unit --watchAll --passWithNoTests",
+    "test:unit:coverage": "vue-cli-service test:unit --coverage --passWithNoTests",
+    "lint": "vue-cli-service lint --no-fix",
+    "report": "vue-cli-service build --report"
   },
   "dependencies": {
-    "core-js": "^3.6.5",
-    "vue": "^2.6.11",
-    "vue-router": "^3.2.0",
-    "vuex": "^3.4.0"
+    "core-js": "3.6.5",
+    "vue": "2.6.11",
+    "vue-router": "3.2.0",
+    "vuex": "3.4.0"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-plugin-eslint": "~4.5.0",
-    "@vue/cli-plugin-router": "~4.5.0",
-    "@vue/cli-plugin-unit-jest": "~4.5.0",
-    "@vue/cli-plugin-vuex": "~4.5.0",
-    "@vue/cli-service": "~4.5.0",
-    "@vue/eslint-config-airbnb": "^5.0.2",
-    "@vue/test-utils": "^1.0.3",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^6.7.2",
-    "eslint-plugin-import": "^2.20.2",
-    "eslint-plugin-vue": "^6.2.2",
-    "node-sass": "^4.12.0",
-    "sass-loader": "^8.0.2",
-    "vue-template-compiler": "^2.6.11"
+    "@vue/cli-plugin-babel": "4.3.1",
+    "@vue/cli-plugin-eslint": "4.3.1",
+    "@vue/cli-plugin-router": "4.3.1",
+    "@vue/cli-plugin-unit-jest": "4.3.1",
+    "@vue/cli-plugin-vuex": "4.3.1",
+    "@vue/cli-service": "4.3.1",
+    "@vue/eslint-config-airbnb": "5.0.2",
+    "@vue/test-utils": "1.0.3",
+    "babel-eslint": "10.1.0",
+    "eslint": "6.7.2",
+    "eslint-plugin-import": "2.20.2",
+    "eslint-plugin-vue": "6.2.2",
+    "eslint-plugin-vue-types": "1.0.1",
+    "node-sass": "4.14.1",
+    "rfs": "9.0.3",
+    "sass-loader": "8.0.2",
+    "vue-template-compiler": "2.6.11",
+    "vue-types": "1.7.0",
+    "vuex-persistedstate": "3.0.1"
   }
 }
