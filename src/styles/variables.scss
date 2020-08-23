@@ -1,0 +1,31 @@
+/* Media Query variables */
+$viewport-3: 375px;
+$viewport-13: 1366px;
+
+/* Colors */
+$scissors-from: hsl(39, 89%, 49%);
+$scissors-to: hsl(40, 84%, 53%);
+
+$paper-from:  hsl(230, 89%, 62%);
+$paper-to: hsl(230, 89%, 65%);
+
+$rock-from: hsl(349, 71%, 52%);
+$rock-to: hsl(349, 70%, 56%);
+
+$lizard-from: hsl(261, 73%, 60%);
+$lizard-to: hsl(261, 72%, 63%);
+
+$spock-from: hsl(189, 59%, 53%);
+$spock-to: hsl(189, 58%, 57%);
+
+$dark-text: hsl(229, 25%, 31%);
+$score-text: hsl(229, 64%, 46%);
+$header-outline: hsl(217, 16%, 45%);
+
+$background-from: hsl(214, 47%, 23%);
+$background-to: hsl(237, 49%, 15%);
+
+:export {
+	bgColorFrom: $background-from;
+	bgColorTo: $background-to;
+}

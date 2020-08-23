@@ -1,32 +1,53 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+  <div
+    id="app"
+    :style="backgroundGradient"
+    @mousemove="redefinePositions"
+    @mouseleave="resetPositions"
+  >
+    <div class="nav" />
     <router-view/>
   </div>
 </template>
 
+<script>
+import { bgColorFrom, bgColorTo } from './styles/variables.scss';
+
+export default {
+  name: 'App',
+  data() {
+    return {
+      gradientX: '50%',
+      gradientY: '0%',
+    };
+  },
+  computed: {
+    backgroundGradient() {
+      return {
+        background: `radial-gradient(circle at ${this.gradientX} ${this.gradientY}, ${bgColorFrom}, ${bgColorTo})`,
+      };
+    },
+  },
+  methods: {
+    redefinePositions({ clientX, clientY }) {
+      this.gradientX = `${clientX}px`;
+      this.gradientY = `${clientY}px`;
+    },
+    resetPositions() {
+      this.gradientX = '50%';
+      this.gradientY = '0%';
+    },
+  },
+};
+</script>
+
 <style lang="scss">
+@import './styles/reset';
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  font-family: 'Barlow Semi Condensed', Helvetica, Arial, sans-serif;
 }
 </style>
