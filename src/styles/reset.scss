@@ -36,6 +36,7 @@ html {
 body {
 	text-rendering: optimizeSpeed;
 	line-height: 1.5;
+	color: $white;
 }
 
 html, body {
@@ -60,9 +61,10 @@ img {
 }
 
 button {
+	color: $white;
 	background: none;
 	border: none;
-	cursor: pointer;	
+	cursor: pointer;
 }
 
 /* Natural flow and rhythm in articles by default */

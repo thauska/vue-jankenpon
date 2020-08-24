@@ -19,10 +19,13 @@
         border-radius: 10px;
         padding: rfs(5px 10px);
         width: 150px;
-        color: $white;
         font-weight: 500;
         margin-top: rfs(50px);
         transition: background .3s linear;
+
+        &:visited {
+        color: $white
+        }
 
         &:hover,
         &:focus {

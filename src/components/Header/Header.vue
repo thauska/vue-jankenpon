@@ -48,7 +48,6 @@
                 display: flex;
                 flex-direction: column;
                 line-height: 0.8;
-                color: $white;
                 font-size: rfs(2rem);
             }
         }

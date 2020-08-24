@@ -12,7 +12,6 @@
 
 <style lang="scss" scoped>
     .back {
-        color: $white;
         letter-spacing: 2px;
         text-decoration: none;
         font-size: rfs(1.25rem);

@@ -1,10 +1,18 @@
 <template>
 	<div class="game">
-		<div class="tokens">
-			<Token v-for="tokenInfo in tokens" :key="tokenInfo.name" v-bind="tokenInfo" />
-		</div>
-		<RulesButton />
-		<BackButton />
+		<template v-if="!gameStart">
+			<div class="tokens">
+				<Token
+					v-for="tokenInfo in tokens"
+					:key="tokenInfo.name"
+					v-bind="tokenInfo"
+					@click="startGame($event)"
+				/>
+			</div>
+			<RulesButton />
+			<BackButton />
+		</template>
+		<Result v-else :player-token="playerToken" @reset="gameStart = false" />
 	</div>
 </template>
 
@@ -12,6 +20,17 @@
 	import Token from '@/components/Token/Token.vue';
 	import RulesButton from '@/components/Buttons/Rules.vue';
 	import BackButton from '@/components/Buttons/Back.vue';
+	import Result from '@/components/Result/Result.vue';
+
+	import { TOKEN_LIST } from '@/utils';
+
+	const {
+		ROCK,
+		PAPER,
+		SCISSORS,
+		LIZARD,
+		SPOCK,
+	} = TOKEN_LIST;
 
 	export default {
 		name: 'Game',
@@ -19,18 +38,27 @@
 			Token,
 			RulesButton,
 			BackButton,
+			Result,
 		},
 		data() {
 			return {
 				tokens: [
 					/* eslint-disable global-require */
-					{ name: 'scissors', src: require('@/assets/icon-scissors.svg') },
-					{ name: 'paper', src: require('@/assets/icon-paper.svg') },
-					{ name: 'rock', src: require('@/assets/icon-rock.svg') },
-					{ name: 'lizard', src: require('@/assets/icon-lizard.svg') },
-					{ name: 'spock', src: require('@/assets/icon-spock.svg') },
+					{ name: SCISSORS, src: require('@/assets/icon-scissors.svg') },
+					{ name: PAPER, src: require('@/assets/icon-paper.svg') },
+					{ name: ROCK, src: require('@/assets/icon-rock.svg') },
+					{ name: LIZARD, src: require('@/assets/icon-lizard.svg') },
+					{ name: SPOCK, src: require('@/assets/icon-spock.svg') },
 				],
+				playerToken: '',
+				gameStart: false,
 			};
+		},
+		methods: {
+			startGame(token) {
+				this.playerToken = token;
+				this.gameStart = true;
+			},
 		},
 	};
 </script>
@@ -41,7 +69,8 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        margin-top: rfs(-50px);
+		margin-top: rfs(-50px);
+		width: 100%;
 
         .tokens {
             display: grid;

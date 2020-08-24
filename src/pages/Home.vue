@@ -30,7 +30,6 @@
 			font-size: rfs(4rem);
 			font-weight: bold;
 			text-decoration: none;
-			color: $white;
 			transition: transform .3s linear, letter-spacing .3s linear;
 
 			&:visited {

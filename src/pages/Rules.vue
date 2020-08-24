@@ -27,7 +27,6 @@
         min-height: 100vh;
 
         .title {
-            color: $white;
             letter-spacing: 2px;
         }
 
