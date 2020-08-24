@@ -12,7 +12,6 @@
 		props: {
 			name: VueTypes.string.isRequired,
 			src: VueTypes.string.isRequired,
-			tabindex: VueTypes.integer.isRequired,
 		},
 	};
 </script>

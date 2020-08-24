@@ -8,24 +8,13 @@
 </template>
 
 <script>
-	import { mapState, mapMutations } from 'vuex';
-	import { SET_SCORE } from '@/store/modules/score/mutations';
+	import { mapState } from 'vuex';
 
 	export default {
 		name: 'Score',
 		computed: {
 			...mapState('Score', {
 				score: ({ score }) => score,
-			}),
-		},
-		created() {
-			setTimeout(() => {
-				this.setScore(2);
-			}, 1000);
-		},
-		methods: {
-			...mapMutations('Score', {
-				setScore: SET_SCORE,
 			}),
 		},
 	};
