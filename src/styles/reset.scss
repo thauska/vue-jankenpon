@@ -59,6 +59,12 @@ img {
 	display: block;
 }
 
+button {
+	background: none;
+	border: none;
+	cursor: pointer;	
+}
+
 /* Natural flow and rhythm in articles by default */
 article > * + * {
 	margin-top: 1em;
