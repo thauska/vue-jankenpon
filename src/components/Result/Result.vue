@@ -1,26 +1,28 @@
 <template>
 	<div class="results">
-		<template v-if="gameFinished">
-			<div class="tokens">
-				<div class="player">
-					<h2>YOU PICKED</h2>
-					<Token :name="playerToken" :src="playerSrc" />
+		<transition name="slide-fade" mode="out-in">
+			<div v-if="gameFinished">
+				<div class="tokens">
+					<div class="player">
+						<h2>YOU PICKED</h2>
+						<Token :name="playerToken" :src="playerSrc" />
+					</div>
+					<div class="player">
+						<h2>HOUSE PICKED</h2>
+						<Token :name="computerToken" :src="computerSrc" />
+					</div>
 				</div>
-				<div class="player">
-					<h2>HOUSE PICKED</h2>
-					<Token :name="computerToken" :src="computerSrc" />
-				</div>
+				<h2 class="game-result">
+					{{ gameResult }}
+				</h2>
+				<button class="reset" @click="$emit('reset')">
+					PLAY AGAIN
+				</button>
 			</div>
-			<h2 class="game-result">
-				{{ gameResult }}
-			</h2>
-			<button class="reset" @click="$emit('reset')">
-				PLAY AGAIN
-			</button>
-		</template>
-		<p v-else class="loading">
-			Rock... Paper... Scissors... Lizard... Spock...
-		</p>
+			<p v-else class="loading">
+				Rock... Paper... Scissors... Lizard... Spock...
+			</p>
+		</transition>
 	</div>
 </template>
 
@@ -89,6 +91,19 @@
         align-items: center;
         width: 100%;
 
+        .slide-fade-enter-active {
+            transition: all .3s ease;
+        }
+
+        .slide-fade-leave-active {
+            transition: all .5s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+        }
+
+        .slide-fade-enter, .slide-fade-leave-to {
+            transform: translateX(10px);
+            opacity: 0;
+        }
+
         .tokens {
             display: flex;
             justify-content: space-between;
@@ -97,7 +112,9 @@
             .player {
                 display: flex;
                 flex-direction: column;
-				align-items: center;
+								align-items: center;
+								margin: rfs(15px);
+
 
 				h2 {
 					font-size: rfs(1.25rem);
@@ -189,5 +206,5 @@
 			font-size: rfs(1.5rem);
 			font-weight: bold;
 		}
-    }
+  }
 </style>
