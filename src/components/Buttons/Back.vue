@@ -12,15 +12,15 @@
 
 <style lang="scss" scoped>
     .back {
-        letter-spacing: 2px;
-        text-decoration: none;
-        font-size: rfs(1.25rem);
-        margin-top: rfs(50px);
+      letter-spacing: 2px;
+      text-decoration: none;
+      font-size: rfs(1.25rem);
+      margin-top: rfs(20px);
 
-        &:hover,
-        &:focus {
-            outline: none;
-            text-decoration: underline;
-        }
+      &:hover,
+      &:focus {
+          outline: none;
+          text-decoration: underline;
+      }
     }
 </style>
